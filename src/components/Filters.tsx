@@ -1,0 +1,3 @@
+export function Filters({ radius, setRadius, category, setCategory }: { radius: number; setRadius: (v: number)=>void; category: string; setCategory: (v: string)=>void }) {
+  return <div className="card flex gap-4 items-end" data-testid="filters"><label className="text-sm">Category<input aria-label="Category filter" className="border p-1 ml-1" value={category} onChange={(e)=>setCategory(e.target.value)} /></label><label className="text-sm">Radius {radius} mi<input aria-label="Radius filter" type="range" min={1} max={25} value={radius} onChange={(e)=>setRadius(Number(e.target.value))} /></label></div>;
+}
