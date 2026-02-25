@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Aidora Icon</title>
+  <desc id="desc">A teal shield with a heart and neighborhood dot.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#0b5e57"/>
+    </linearGradient>
+  </defs>
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#g)"/>
+  <path d="M256 365c-4 0-9-2-12-5l-89-82c-50-46-56-124-11-174 43-48 117-53 166-12 49-41 123-36 166 12 45 50 39 128-11 174l-89 82c-3 3-8 5-12 5z" fill="#e2f6f4"/>
+  <circle cx="384" cy="148" r="22" fill="#fbbf24"/>
+</svg>
