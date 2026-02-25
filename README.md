@@ -14,6 +14,7 @@ Aidora is an offline-first, local-first mutual aid board built with React + Type
 - User-controlled sync via Board Pack import/export
 - Optional CoEvo capsule generation and manual publish
 - PWA installability and offline fallback route
+- Verify dashboard at `/verify` for quick local health checks
 
 ## Run
 ```bash

@@ -16,6 +16,7 @@ test('aidora core flows', async ({ page }) => {
   await page.getByLabel('Title').fill('Can deliver groceries');
   await page.getByLabel('Category').fill('errands');
   await page.getByLabel('Create post').click();
+  await page.getByTestId(/post-/).filter({ hasText: 'Need groceries' }).first().click();
   await expect(page.getByTestId('matches-list')).toContainText('Can deliver groceries');
 
   await page.getByLabel('Open post').first().click();
@@ -29,4 +30,9 @@ test('aidora core flows', async ({ page }) => {
   await page.goto('/sync');
   await page.getByLabel('Generate capsule').click();
   await expect(page.getByLabel('Board pack JSON')).toContainText('[redacted-phone]');
+
+  await page.goto('/verify');
+  await expect(page.getByTestId('verify-summary')).toContainText('System Verify');
+  await expect(page.getByTestId('verify-check').first()).toContainText('PASS');
+
 });

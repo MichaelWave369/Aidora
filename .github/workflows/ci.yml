@@ -12,8 +12,19 @@ jobs:
       - uses: pnpm/action-setup@v4
         with: { version: 9 }
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: 'pnpm' }
-      - run: pnpm install
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Harden pnpm network settings
+        shell: bash
+        run: |
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "fetch-retries=5" >> .npmrc
+          echo "fetch-retry-factor=2" >> .npmrc
+          echo "fetch-retry-mintimeout=20000" >> .npmrc
+          echo "fetch-retry-maxtimeout=120000" >> .npmrc
+      - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
@@ -25,7 +36,18 @@ jobs:
       - uses: pnpm/action-setup@v4
         with: { version: 9 }
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: 'pnpm' }
-      - run: pnpm install
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Harden pnpm network settings
+        shell: bash
+        run: |
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "fetch-retries=5" >> .npmrc
+          echo "fetch-retry-factor=2" >> .npmrc
+          echo "fetch-retry-mintimeout=20000" >> .npmrc
+          echo "fetch-retry-maxtimeout=120000" >> .npmrc
+      - run: pnpm install --frozen-lockfile
       - run: npx playwright install --with-deps chromium
       - run: pnpm e2e
