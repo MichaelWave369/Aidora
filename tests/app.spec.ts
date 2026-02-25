@@ -24,6 +24,7 @@ test('aidora core flows', async ({ page }) => {
   await page.getByLabel('Thread message').fill('I can help');
   await page.getByLabel('Send message').click();
   await page.getByLabel('Resolve thread').click();
+  await expect(page.getByTestId('thread-status')).toContainText('resolved');
   await page.goto('/reputation');
   await expect(page.getByTestId('reputation-badge')).toContainText('Local Trust 1');
 
